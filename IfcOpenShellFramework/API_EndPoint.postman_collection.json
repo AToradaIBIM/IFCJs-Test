@@ -1,0 +1,4262 @@
+{
+	"info": {
+		"_postman_id": "fd582500-4292-401c-a4f9-b7354312e7a2",
+		"name": "API_EndPoint",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "_Old",
+			"item": [
+				{
+					"name": "dbConexion",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{Host}}/ifcdb/:namebd",
+							"protocol": "http",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"ifcdb",
+								":namebd"
+							],
+							"variable": [
+								{
+									"key": "namebd",
+									"value": "dev",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPsetsIfcProperty",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{Host}}/ifcdb/:namebd/:guid",
+							"protocol": "http",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"ifcdb",
+								":namebd",
+								":guid"
+							],
+							"variable": [
+								{
+									"key": "namebd",
+									"value": "ibimForge",
+									"type": "string"
+								},
+								{
+									"key": "guid",
+									"value": "c35b87fc-f840-4009-835a-e808480fea84",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPsetIfcProperty",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{Host}}/ifcdb/:namebd/:guid/:pset",
+							"protocol": "http",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"ifcdb",
+								":namebd",
+								":guid",
+								":pset"
+							],
+							"variable": [
+								{
+									"key": "namebd",
+									"value": "ibimForge",
+									"type": "string"
+								},
+								{
+									"key": "guid",
+									"value": "c35b87fc-f840-4009-835a-e808480fea84",
+									"type": "string"
+								},
+								{
+									"key": "pset",
+									"value": "newPsetIfc",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOnePropIfcProperty",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{Host}}/ifcdb/:namebd/:guid/:pset/:prop",
+							"protocol": "http",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"ifcdb",
+								":namebd",
+								":guid",
+								":pset",
+								":prop"
+							],
+							"variable": [
+								{
+									"key": "namebd",
+									"value": "ibimForge",
+									"type": "string"
+								},
+								{
+									"key": "guid",
+									"value": "c35b87fc-f840-4009-835a-e808480fea84",
+									"type": "string"
+								},
+								{
+									"key": "pset",
+									"value": "newPsetIfc2",
+									"type": "string"
+								},
+								{
+									"key": "prop",
+									"value": "newPropIfc3",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createOneIfcProperty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"guidIfcElement\":\"c35b87fc-f840-4009-835a-e808480fea84\",\r\n    \"namePset\": \"newPsetIfcModified4\",\r\n    \"newProp\":{\r\n        \"name\":\"newPropIfcAdd3\",\r\n        \"nominalValue\": \"casi\" \r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{Host}}/ifcdb/:namebd/oneprop",
+							"protocol": "http",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"ifcdb",
+								":namebd",
+								"oneprop"
+							],
+							"variable": [
+								{
+									"key": "namebd",
+									"value": "ibimForge",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upsertIfcProperty",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"ifcModel\":\"modeloIFC\",\r\n    \"guidIfcElement\":\"c35b87fc-f840-4009-835a-e808480fea85\",\r\n    \"psets\":[\r\n        {\r\n            \"name\": \"newPsetIfc\",\r\n            \"properties\":[\r\n                {\r\n                    \"name\": 10,\r\n                    \"nominalValue\": true \r\n                }               \r\n            ]\r\n\r\n        },\r\n        {\r\n            \"name\": \"newPsetIfc2\",\r\n            \"properties\":[\r\n                {\r\n                    \"name\": \"newPropIfc3\",\r\n                    \"nominalValue\": \"upsertDos\" \r\n                },\r\n                {\r\n                    \"name\": \"newPropIfc4\",\r\n                    \"nominalValue\": 75.89\r\n                }                \r\n            ]\r\n        }\r\n    ]\r\n} \r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{Host}}/ifcdb/:namebd/upsertprop",
+							"protocol": "http",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"ifcdb",
+								":namebd",
+								"upsertprop"
+							],
+							"variable": [
+								{
+									"key": "namebd",
+									"value": "ibimForge",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upsertAll",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n    \"ifcModel\":\"modeloIFC\",\r\n    \"guidIfcElement\":\"c35b87fc-f840-4009-835a-e808480fea84\",\r\n    \"pset\":\r\n        {\r\n            \"name\": \"newPsetIfc2\",\r\n            \"property\":\r\n            {\r\n                \"name\": \"17\",\r\n                \"nominalValue\": \"conseguidoarray\" \r\n            }            \r\n        }  \r\n    },\r\n    {\r\n    \"ifcModel\":\"modeloIFC\",\r\n    \"guidIfcElement\":\"c35b87fc-f840-4009-835a-e808480fea90\",\r\n    \"pset\":\r\n        {\r\n            \"name\": \"newPsetIfc\",\r\n            \"property\":\r\n            {\r\n                \"name\": \"17\",\r\n                \"nominalValue\": \"conseguidoarray\" \r\n            }            \r\n        }  \r\n    },\r\n    {\r\n    \"ifcModel\":\"modeloIFC\",\r\n    \"guidIfcElement\":\"c35b87fc-f840-4009-835a-e808480fea84\",\r\n    \"pset\":\r\n        {\r\n            \"name\": \"newPsetIfc2\",\r\n            \"property\":\r\n            {\r\n                \"name\": \"17\",\r\n                \"nominalValue\": \"conseguidoarray\" \r\n            }            \r\n        }  \r\n    }\r\n]\r\n  \r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{Host}}/ifcdb/:namebd/upsertall",
+							"protocol": "http",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"ifcdb",
+								":namebd",
+								"upsertall"
+							],
+							"variable": [
+								{
+									"key": "namebd",
+									"value": "ibimForge",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateIfcPset",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"guidIfcElement\":\"c35b87fc-f840-4009-835a-e808480fea84\",\r\n    \"namePset\":\"newPsetIfcModified4\",\r\n    \"newPset\":{\r\n        \"name\": \"newPsetIfcModified4\",\r\n        \"properties\":[\r\n            {\r\n                \"name\": \"holaquease\",\r\n                \"nominalValue\": 17\r\n            },\r\n            {\r\n                \"name\": \"holaquease02\",\r\n                \"nominalValue\": true \r\n            }            \r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{Host}}/ifcdb/:namebd/pset",
+							"protocol": "http",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"ifcdb",
+								":namebd",
+								"pset"
+							],
+							"variable": [
+								{
+									"key": "namebd",
+									"value": "ibimForge",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateIfcProp",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"guidIfcElement\":\"c35b87fc-f840-4009-835a-e808480fea84\",\r\n    \"nameProp\":\"holaqueasenew2\",\r\n    \"newProp\":{\r\n        \"name\": \"holaqueasenew2\",\r\n        \"nominalValue\": \"javier\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{Host}}/ifcdb/:namebd/prop",
+							"protocol": "http",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"ifcdb",
+								":namebd",
+								"prop"
+							],
+							"variable": [
+								{
+									"key": "namebd",
+									"value": "dev",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createIfcJson",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://{{Host}}/ifcdb/:namebd/ifcjson",
+							"protocol": "http",
+							"host": [
+								"{{Host}}"
+							],
+							"path": [
+								"ifcdb",
+								":namebd",
+								"ifcjson"
+							],
+							"variable": [
+								{
+									"key": "namebd",
+									"value": "ibimForge",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "executecs",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Aplicacion\": \"API_Connection.exe\",\n\t\"Args\": [\"prueba5\",\"prueba2\"],\n\t\"Files\": [\"archivo1.txt\",\"archivo2.txt\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/executecs/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"executecs",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ifc-NodeJS",
+			"item": [
+				{
+					"name": "Register",
+					"item": [
+						{
+							"name": "createUser",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Description\": \"description user02\",\n    \"Name\": \"Pepa\",\n    \"PathUserServer\": \"pathServerUser02\",\n    \"WebAppModules\":[],\n    \"Password\":\"Pepe1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/createuser",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"createuser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "createProject",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n    \"CodigoProyecto\": \"ModuleProject1555\",\n    \"Nombre\": \"ModuleProject555\",\n    \"Descripcion\": \"ModuleProject\",\n    \"PathProjectServer\": \"V:\\\\007_PR_ibim.China\",\n    \"CodigoCliente\": \"ModuleProject\",\n    \"CodigoContratista\": \"ModuleProject\",\n    \"WebAppModules\":[],\n    \"PathLogos\":[\n        \"./img/logo_cobra.png\"\n    ],\n    \"ConfigParameters\": [\n        {\n            \"Param\": \"dsfasdf\",\n            \"HtmlElement\": \"sadfdas\",\n            \"Visible\": true\n        },\n        {\n            \"Param\": \"dsddd\",\n            \"HtmlElement\": \"sadfdas\",\n            \"Visible\": true\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/createproject/:userId",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"createproject",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "60085c1f2f1f3007cd9ebe54"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "createCommit",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Tag\": \"AsBuilt\",\n    \"Description\": \"BEEP Micalet 5 - Valencia\",\n    \"EmailForgeAccount\": \"aforge20+21_2@gmail.com\",\n    \"VisorTitle\": \"BEEP Micalet 5 - Valencia\",\n    \"CodeCommit\": \"526_IVE_R20_A_G_BEEPMicalet__1619600294442\",\n    \"PathCommitServer\": \"V:\\\\526_CL_IVE_MBM_BEEPmicalet5\\\\3-Publicado\\\\20210428_ModeloRevitForge\",\n    \"UrnPeriscoopeWeb\": \"urn:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6cGVyaXNjb29wZV8yMDIxXzAxLzUyNl9JVkVfUjIwX0FfR19CRUVQTWljYWxldC5ydnQ\",\n    \"IsTranslated\": true\n}\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/createcommit/:projectId/:userId",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"createcommit",
+										":projectId",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "projectId",
+											"value": "605cc245f63e609c14d353a8"
+										},
+										{
+											"key": "userId",
+											"value": "605cc1a9f63e609c14d353a6"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "commitAndTranslate",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n    \"Tag\": \"Proyecto\",\n    \"Description\": \"Demo02_Devaim\",\n    \"VisorTitle\":\"PruebaTítulo\",\n    \"PathCommitServer\":\"V:\\\\319_CL_FCC_TER_FGVrampaCT\\\\3-Publicado\\\\_ModelosCertificacion\\\\CER 08\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/commitandtranslate/:projectId/:userId",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"commitandtranslate",
+										":projectId",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "projectId",
+											"value": "asdfasdf"
+										},
+										{
+											"key": "userId",
+											"value": "asdfadsfdasf"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "addUserToProject",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n    \"Id\":\"60085cf72f1f3007cd9ebe59\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/addusertoproject/:userId",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"addusertoproject",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "60085e982f1f3007cd9ebe69",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateCommit",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Id\":\"6033b3abb41bf5106e360af2\",\n    \"IsTranslated\": false,\n    \"VisorTitle\":\"pruebaVisor\"\n}\n\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/updatecommit",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"updatecommit"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllUsers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/getallusers",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"getallusers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getSpecificUser",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/getspecificuser/:idUser",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"getspecificuser",
+										":idUser"
+									],
+									"variable": [
+										{
+											"key": "idUser",
+											"value": "604622923932b7ac88662193"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getModulesForUserProject",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/getmodules/:idUser/:idProject",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"getmodules",
+										":idUser",
+										":idProject"
+									],
+									"variable": [
+										{
+											"key": "idUser",
+											"value": "603e71d3ba5acdf44bac9c5e"
+										},
+										{
+											"key": "idProject",
+											"value": "603e7319ba5acdf44bac9c7e"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllProjects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/getallprojects",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"getallprojects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getProject",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/getproject/:idProject",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"getproject",
+										":idProject"
+									],
+									"variable": [
+										{
+											"key": "idProject",
+											"value": "6006a5e2ba291b0f672a1701"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getCommitForCodeCommit",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/getcommitforcode/:codeCommit",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"getcommitforcode",
+										":codeCommit"
+									],
+									"variable": [
+										{
+											"key": "codeCommit",
+											"value": "Credentials_02"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getCommitForId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/getcommitforid/:idCommit",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"getcommitforid",
+										":idCommit"
+									],
+									"variable": [
+										{
+											"key": "idCommit",
+											"value": "60085e282f1f3007cd9ebe65"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllCommitsForProject",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/getallcommitsforproject/:projectId",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"getallcommitsforproject",
+										":projectId"
+									],
+									"variable": [
+										{
+											"key": "projectId",
+											"value": "602a8a481a2e811aeee61f5b",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllModelsForCommit",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/getallmodelsforcommit/:idCommit",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"getallmodelsforcommit",
+										":idCommit"
+									],
+									"variable": [
+										{
+											"key": "idCommit",
+											"value": "6033b3abb41bf5106e360af2",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllProjectsForUser",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/getallprojectsforuser/:userId",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"getallprojectsforuser",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "6049e7168d1a6bc9caf66693",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getPathForSpecificCommit",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/getpathforcommit/:urnCommit",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"getpathforcommit",
+										":urnCommit"
+									],
+									"variable": [
+										{
+											"key": "urnCommit",
+											"value": "urn:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6ZW55c2UxOTEzMl8yMDIxXzAxLzE5LTEzMi1MMV9VRUVfUEMwMV9GLTEwLUUzMDVfTU9EX0lTRl9WUlIuaWZj",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "createTableIfc",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Description\": \"Some description...\",\n    \"Name\": \"Table02\",\n    \"PropPsetClassToFilter\": [\n        {\n            \"NamePset\":\"Pset_WallCommon\",\n            \"NameProp\":\"ExtendToStructure\",\n            \"ClassProp\":\"IfcWallStandardCase\"\n        },\n        {\n            \"NamePset\":\"Pset_IfcElementSpecific\",\n            \"NameProp\":\"Tag\",\n            \"ClassProp\":\"IfcWallStandardCase\"\n        }\n    ]\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/createtableifc",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"createtableifc"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getTablesIfcForUser",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/gettablesifcforuser/:idUser",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"gettablesifcforuser",
+										":idUser"
+									],
+									"variable": [
+										{
+											"key": "idUser",
+											"value": "6092afa8fd433f80d868fa01"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getTablesIfcForProject",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/gettablesifcforproject/:idproject",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"gettablesifcforproject",
+										":idproject"
+									],
+									"variable": [
+										{
+											"key": "idproject",
+											"value": "6092afa8fd433f80d868fa04"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "addTableIfcToUser",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/addtableifctouser/:idTable/:idUser",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"addtableifctouser",
+										":idTable",
+										":idUser"
+									],
+									"variable": [
+										{
+											"key": "idTable",
+											"value": "60990f11ab0244617f43dab7"
+										},
+										{
+											"key": "idUser",
+											"value": "60990f0eab0244617f43da8a"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "addTableIfcToProject",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/addtableifctoproject/:idTable/:idProject",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"addtableifctoproject",
+										":idTable",
+										":idProject"
+									],
+									"variable": [
+										{
+											"key": "idTable",
+											"value": "6094ef43ef6c9a595f47f3e5"
+										},
+										{
+											"key": "idProject",
+											"value": "6092afa8fd433f80d868fa04"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteTableIfcToUser",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/tableifctouser/:idTable/:idUser",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"tableifctouser",
+										":idTable",
+										":idUser"
+									],
+									"variable": [
+										{
+											"key": "idTable",
+											"value": "6094ef43ef6c9a595f47f3e5"
+										},
+										{
+											"key": "idUser",
+											"value": "6092afa8fd433f80d868fa01"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteTableIfcToProject",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/register/tableifctoproject/:idTable/:idProject",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"register",
+										"tableifctoproject",
+										":idTable",
+										":idProject"
+									],
+									"variable": [
+										{
+											"key": "idTable",
+											"value": "6094ef43ef6c9a595f47f3e5"
+										},
+										{
+											"key": "idProject",
+											"value": "6092afa8fd433f80d868fa04"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "OpenCloseIFC",
+					"item": [
+						{
+							"name": "openifcs",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pathOfFiles\":\"C:\\\\Users\\\\erl14\\\\Desktop\\\\PruebasIFC\\\\IFC\\\\PruebaMEP\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/ifc/openclose/open",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"openclose",
+										"open"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "closeifcs",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/openclose/close/:guid",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"openclose",
+										"close",
+										":guid"
+									],
+									"variable": [
+										{
+											"key": "guid",
+											"value": "3be540de-27e6-4ff0-8f52-fd533ffbaa67",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "refreshIfcs",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/openclose/refresh/:guidModels",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"openclose",
+										"refresh",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DatosGenerales",
+					"item": [
+						{
+							"name": "segregateIfcInstances",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"model\":\"UNO.ifc\",\r\n        \"guids\":[\r\n            \"0hIwsK4mb1reBp96Bx5PYw\",\r\n            \"3oZZpaaBP13uzMcm0f5TxY\",\r\n            \"2wzbxH6G99bf2PbN6zioX9\",\r\n            \"2wzbxH6G99bf2PbN6zioQr\",\r\n            \"0eQfd31CzE7BPqWaccQj8l\"\r\n        ]\r\n    },\r\n    {\r\n        \"model\":\"DOS.ifc\",\r\n        \"guids\":[\r\n            \"0hIwsK4mb1reBp96Bx5PYw\",\r\n            \"3oZZpaaBP13uzMcm0f5TxY\",\r\n            \"2wzbxH6G99bf2PbN6zioX9\",\r\n            \"2wzbxH6G99bf2PbN6zioQr\",\r\n            \"0eQfd31CzE7BPqWaccQj8l\"\r\n        ]\r\n    },\r\n        {\r\n        \"model\":\"TRES.ifc\",\r\n        \"guids\":[\r\n            \"0hIwsK4mb1reBp96Bx5PYw\",\r\n            \"3oZZpaaBP13uzMcm0f5TxY\",\r\n            \"2wzbxH6G99bf2PbN6zioX9\",\r\n            \"2wzbxH6G99bf2PbN6zioQr\",\r\n            \"0eQfd31CzE7BPqWaccQj8l\"\r\n        ]\r\n    },\r\n        {\r\n        \"model\":\"CUATRO.ifc\",\r\n        \"guids\":[\r\n            \"0hIwsK4mb1reBp96Bx5PYw\",\r\n            \"3oZZpaaBP13uzMcm0f5TxY\",\r\n            \"2wzbxH6G99bf2PbN6zioX9\",\r\n            \"2wzbxH6G99bf2PbN6zioQr\",\r\n            \"0eQfd31CzE7BPqWaccQj8l\"\r\n        ]\r\n    },\r\n    {\r\n        \"model\":\"CINCO.ifc\",\r\n        \"guids\":[\r\n            \"0hIwsK4mb1reBp96Bx5PYw\",\r\n            \"3oZZpaaBP13uzMcm0f5TxY\",\r\n            \"2wzbxH6G99bf2PbN6zioX9\",\r\n            \"2wzbxH6G99bf2PbN6zioQr\",\r\n            \"0eQfd31CzE7BPqWaccQj8l\"\r\n        ]\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/ifc/datosgenerales/segregateifcinstances/:guidModels/:segregateModelName",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"datosgenerales",
+										"segregateifcinstances",
+										":guidModels",
+										":segregateModelName"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "8326fdcf-182b-437e-9b05-d07257d59d9d",
+											"type": "string"
+										},
+										{
+											"key": "segregateModelName",
+											"value": "Segregado_MEP"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "allIfcClasses",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/datosgenerales/allifcclasses/:guidModels",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"datosgenerales",
+										"allifcclasses",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "8330b203-608d-4033-842e-51ad60e169b1",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "allpsetpropvalues",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/datosgenerales/allpsetpropvalues/:guidModels",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"datosgenerales",
+										"allpsetpropvalues",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "8330b203-608d-4033-842e-51ad60e169b1",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "mergeIfcModels",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\"UNO.ifc\",\"DOS.ifc\",\"TRES.ifc\",\"CINCO.ifc\"]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/ifc/datosgenerales/mergeifcmodels/:guidModels",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"datosgenerales",
+										"mergeifcmodels",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "d5ffd6d4-94aa-4b43-a897-e89e901e7a38",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getElementsFromPsetParam",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pset\":\"General\",\r\n    \"parameter\":\"GlobalId\",\r\n    \"values\":[\r\n        \"1Jf0M$Q7nBqAiBPXRIB0vl\"\r\n    ],\r\n    \"filterCodes\":\"none\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/ifc/datosgenerales/getelementsfrompsetparam/:guidModels",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"datosgenerales",
+										"getelementsfrompsetparam",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "c1c98122-5d3a-47a4-937c-efbc7aaeb16c",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getValuesOfPropsOfElems",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"model\":\"FGV18_131-FCC-PE01-08PLRA-M3-BE.ifc\",\r\n        \"guids\":[\r\n            \"3IcrZwwiPD48v0BDnGjnlO\",\r\n            \"3IcrZwwiPD48v0BDnGjnk9\"\r\n            ],\r\n        \"pset\":\"General\",\r\n        \"parameter\":\"GlobalId\",\r\n        \"includeType\": false\r\n    },\r\n    {\r\n        \"model\":\"FGV18_131-FCC-PE01-08PLRA-M3-SE.ifc\",\r\n        \"guids\":[\r\n            \"0EoRpu7812cfTGgcCx1cQT\",\r\n            \"0EoRpu7812cfTGgcCx1cQS\"\r\n        ]\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/ifc/datosgenerales/getvaluesofpropsofelems/:guidModels",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"datosgenerales",
+										"getvaluesofpropsofelems",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "054f1aa3-db48-405f-b36c-72d650268787",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "systems",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/datosgenerales/systems/:guidModels",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"datosgenerales",
+										"systems",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "a7aad6eb-44c1-4df3-9779-f07026ab7111",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "specificPsetPropValues",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"NamePset\":\"Cotas\",\r\n        \"NameProp\":\"Longitud\",\r\n        \"ClassProp\":\"IfcWallStandardCase\"\r\n    },\r\n    {\r\n        \"NamePset\":\"Cotas\",\r\n        \"NameProp\":\"Volumen\",\r\n        \"ClassProp\":\"IfcWallStandardCase\"\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/ifc/datosgenerales/specificpsetpropvalues/:guidModels",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"datosgenerales",
+										"specificpsetpropvalues",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "6d5d5c7c-6547-431b-9608-5aa2b27a010b",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "generateGeoJsonSpecific",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"model\":\"19-132-L1_UEE_PC01_F-10-E305_MOD_ISF_VRR.ifc\",\r\n        \"guids\":[\"1jFJBuKvfEyAyaNgaHhHXp\"],\r\n        \"properties\": [\r\n            {\r\n                \"NamePset\":\"Pset_IfcElementSpecific\",\r\n                \"NameProp\":\"GlobalId\"\r\n            },\r\n            {\r\n                \"NamePset\":\"Pset_IfcElementSpecific\",\r\n                \"NameProp\":\"ModelFileName\"\r\n            }\r\n        ],\r\n        \"bbox\": true\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/ifc/datosgenerales/generategeojsonspecific/:nameOfCollection/:guidModels",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"datosgenerales",
+										"generategeojsonspecific",
+										":nameOfCollection",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "nameOfCollection",
+											"value": "GeoJsons"
+										},
+										{
+											"key": "guidModels",
+											"value": "99153bb2-b88c-44b6-b072-9c193f17fc90"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "avarageCoordinateOfModels Copy",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/datosgenerales/avaragecoordinateofmodels/:guidModels",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"datosgenerales",
+										"avaragecoordinateofmodels",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "52698a09-5179-4e08-aa87-34384116c21d",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Forge",
+					"item": [
+						{
+							"name": "credentials",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"EmailAccount\": \"aforge20+21_4@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/forge/credentials",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"forge",
+										"credentials"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "createBucketIfNotExist",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/forge/createbucket/:bucketKey",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"forge",
+										"createbucket",
+										":bucketKey"
+									],
+									"variable": [
+										{
+											"key": "bucketKey",
+											"value": "periscoope202108"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "uploadFileIfNotExists",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"FilePath\":\"V:\\\\319_CL_FCC_TER_FGVrampaCT\\\\3-Publicado\\\\_ModelosCertificacion\\\\CER 08\\\\FGV18_131-FCC-PE01-CM-CERT.08.nwd\",\r\n    \"BucketKey\":\"erl_pruebas_ibim\",\r\n    \"ObjectKey\":\"entregaXX\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/forge/uploadfile",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"forge",
+										"uploadfile"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getObjectDetails",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/forge/getobjectdetails/:objectKey/:bucketKey",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"forge",
+										"getobjectdetails",
+										":objectKey",
+										":bucketKey"
+									],
+									"variable": [
+										{
+											"key": "objectKey",
+											"value": "FGV18_131-FCC-PE01-CM-CERT.08.nwd"
+										},
+										{
+											"key": "bucketKey",
+											"value": "erl_pruebas_ibim"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "translateFile",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/forge/translatefile/:urn",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"forge",
+										"translatefile",
+										":urn"
+									],
+									"variable": [
+										{
+											"key": "urn",
+											"value": "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6ZXJsX3BydWViYXNfaWJpbV92MDMvRkdWMThfMTMxLUZDQy1QRTAxLTA4UExSQS1DTS1DRVJUX18xNjE2NTM4MjgyMTM2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getManifest",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/forge/getmanifest/:urn",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"forge",
+										"getmanifest",
+										":urn"
+									],
+									"variable": [
+										{
+											"key": "urn",
+											"value": "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6cGVyaXNjb29wZV8yMDIxXzAxL1Rlc3Rpbmcubndk"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getBucketDetails",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/forge/getbucketdetails/:bucketKey",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"forge",
+										"getbucketdetails",
+										":bucketKey"
+									],
+									"variable": [
+										{
+											"key": "bucketKey",
+											"value": "erl_pruebas_ibim"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "createForgeAccount",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Description\": \"30/08/2021\",\n    \"EmailAccount\": \"aforge20+21_4@gmail.com\",\n    \"EmailPassword\": \"9,QtXQSRL8j;t?i\",\n    \"ConsumerKey\": \"KescphKjwOU7E613R4zFQUIineGeQY4G\",\n    \"ConsumerSecret\": \"T0IcgXhiTrM2nyOE\",\n    \"IsCurrentAccount\": true,\n    \"Bucket\":{}\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/forge/createforgeaccount",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"forge",
+										"createforgeaccount"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAccount",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"EmailAccount\": \"aforge20+22_1@gmail.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/forge/getaccount",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"forge",
+										"getaccount"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllForgeAccounts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/forge/getallforgeaccounts",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"forge",
+										"getallforgeaccounts"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GeneralManagement",
+					"item": [
+						{
+							"name": "getModulesForUserProject",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/general/getmodules/:idProject/:idUser",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"general",
+										"getmodules",
+										":idProject",
+										":idUser"
+									],
+									"variable": [
+										{
+											"key": "idProject",
+											"value": "6079a68a105ea4049d6acc28"
+										},
+										{
+											"key": "idUser",
+											"value": "602a8a3b1a2e811aeee61f59"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllWebAppModules",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/general/getwebappmodules",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"general",
+										"getwebappmodules"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"item": [
+						{
+							"name": "UserIsRegistered",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Name\": \"Enrique\",\r\n    \"Password\":\"IbimPlatform1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/login/userisregistered",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"login",
+										"userisregistered"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Name\": \"David\",\r\n    \"Password\":\"Maria1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/login/logout",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"login",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "UploadFiles",
+					"item": [
+						{
+							"name": "logos",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "uploadLogos",
+											"type": "file",
+											"src": [
+												"/C:/Users/erl14/Desktop/ProblemaDiana/19-106_COB_CO_14PLOM_MOD_ARQ_VRR (1).rvt",
+												"/C:/Users/erl14/Desktop/ProblemaDiana/19-106_COB_CO_14PLOM_MOD_EST_VRR.rvt",
+												"/C:/Users/erl14/Desktop/ProblemaDiana/19-106_COB_CO_14PLOM_MOD_EST_VRR_desenlazado.rvt"
+											]
+										}
+									]
+								},
+								"url": {
+									"raw": "https://{{Host}}/upload/logos/:idProject",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"upload",
+										"logos",
+										":idProject"
+									],
+									"variable": [
+										{
+											"key": "idProject",
+											"value": "60097445716be9dc1442f0ec"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ExternalProperties",
+					"item": [
+						{
+							"name": "getOrCreateIfcExtPset",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Name\": \"Ibim\",\r\n    \"Description\":\"Specific pset for Ibim\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/ifc/externalprops/getorcreateifcextpset",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"externalprops",
+										"getorcreateifcextpset"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getOrCreateIfcExtPropDef",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Name\": \"Ibim-PropDefinition\",\r\n    \"Description\":\"Specific prop definition for Ibim\",\r\n    \"PsetId\":\"609bbb556b595ebdf6fed21c\",\r\n    \"StorageType\":\"String\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/ifc/externalprops/getorcreateifcextpropdef",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"externalprops",
+										"getorcreateifcextpropdef"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getOrCreateIfcExtProperty",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"PropExtDefId\": \"609be601506d504dcc81ffbd\",\r\n    \"IfcValueStr\": \"35.986\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/ifc/externalprops/getorcreateifcextproperty",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"externalprops",
+										"getorcreateifcextproperty"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getOrCreateIfcExtRelationProp",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"IfcModelName\": \"FGV18_131-FCC-EA-08PLRA-M3-IE\",\r\n    \"IfcElemId\": \"asdfasdfasdfds\",\r\n    \"ExternalPropertiesIds\":[\"609bfe0fb84f1d0d90023780\",\"609bfd07521dfa8c16177790\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/ifc/externalprops/getorcreateifcextrelationprop",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"externalprops",
+										"getorcreateifcextrelationprop"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "saveExtPropGeneral",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"ValueStr\": 55,\r\n        \"NamePset\": \"Ibim-Pset\",\r\n        \"NameProp\": \"Ibim-Prop\",\r\n        \"StorageType\":\"Double\"\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/ifc/externalprops/saveextpropgeneral/:ifcModelName/:ifcGuidElem",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"externalprops",
+										"saveextpropgeneral",
+										":ifcModelName",
+										":ifcGuidElem"
+									],
+									"variable": [
+										{
+											"key": "ifcModelName",
+											"value": "nombreIFC"
+										},
+										{
+											"key": "ifcGuidElem",
+											"value": "guidIFC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "savePropToMultipleIfcElems",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ValueStr\": \"55\",\r\n    \"NamePset\": \"Ibim-Pset\",\r\n    \"NameProp\": \"Ibim-Prop\",\r\n    \"StorageType\":\"Double\",\r\n    \"GlobalIds\":[\"13vTl$MLr5tQzK6ZPUWe$K\",\"13vTl$MLr5tQzK6ZPUXHx_\",\"0Sw7Or0JzAZA0Ffcokosaf\",\"0Sw7Or0JzAZA0FfcokosHA\"]\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://{{Host}}/ifc/externalprops/saveproptomultipleifcelems/:ifcModelName",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"externalprops",
+										"saveproptomultipleifcelems",
+										":ifcModelName"
+									],
+									"variable": [
+										{
+											"key": "ifcModelName",
+											"value": "19-132-L1_UEE_PC01_F-10-E305_MOD_ISF_VRR.ifc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getListExternalPropForSpecificElement",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/externalprops/getlistexternalpropforspecificelement/:ifcModelName/:ifcGuidElem",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"externalprops",
+										"getlistexternalpropforspecificelement",
+										":ifcModelName",
+										":ifcGuidElem"
+									],
+									"variable": [
+										{
+											"key": "ifcModelName",
+											"value": "GVA-VIA-BIM-GEN-PLM.ifc"
+										},
+										{
+											"key": "ifcGuidElem",
+											"value": "1jC2LlYQ92IfWr2Y8576pg"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "extendIfcFilesWithExternalProps",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/externalprops/extendifcfileswithexternalprops/:guidModels",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"externalprops",
+										"extendifcfileswithexternalprops",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "4a5b3857-8c3a-447e-8c28-a2e15813c00d"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getListIfcElementsWithExternalProps",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{Host}}/ifc/externalprops/getlistifcelementswithexternalprops/:ifcModelName",
+									"protocol": "https",
+									"host": [
+										"{{Host}}"
+									],
+									"path": [
+										"ifc",
+										"externalprops",
+										"getlistifcelementswithexternalprops",
+										":ifcModelName"
+									],
+									"variable": [
+										{
+											"key": "ifcModelName",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Ifc-ASPNET",
+			"item": [
+				{
+					"name": "Register",
+					"item": [
+						{
+							"name": "createUser",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Description\": \"description user02\",\n    \"Name\": \"Maria\",\n    \"PathUserServer\": \"pathServerUser02\",\n    \"WebAppModulesNames\":[],\n    \"Password\":\"Maria1234\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/createuser",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"createuser"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllUsers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getallusers",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getallusers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllProjects",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getallprojects",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getallprojects"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllCommitsForProject",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getallcommitsforproject/:idProject",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getallcommitsforproject",
+										":idProject"
+									],
+									"variable": [
+										{
+											"key": "idProject",
+											"value": "6006c0bf9d31de74aaf56f81",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllModelsForCommit",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getallmodelsforcommit/:idCommit",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getallmodelsforcommit",
+										":idCommit"
+									],
+									"variable": [
+										{
+											"key": "idCommit",
+											"value": "6033b3abb41bf5106e360af2",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "createTableIfc",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Description\": \"Some description...\",\n    \"Name\": \"Table01\",\n    \"PropPsetClassToFilter\": [\n        {\n            \"NamePset\":\"Pset_WallCommon\",\n            \"NameProp\":\"ExtendToStructure\",\n            \"ClassProp\":\"IfcWallStandardCase\"\n        },\n        {\n            \"NamePset\":\"Pset_IfcElementSpecific\",\n            \"NameProp\":\"Tag\",\n            \"ClassProp\":\"IfcWallStandardCase\"\n        }\n    ]\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/createtableifc",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"createtableifc"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllProjectsForUser",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getallprojectsforuser/:idUser",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getallprojectsforuser",
+										":idUser"
+									],
+									"variable": [
+										{
+											"key": "idUser",
+											"value": "6049dd858d1a6bc9caf6661c",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getPathForSpecificCommit",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getpathforcommit/:urnCommit",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getpathforcommit",
+										":urnCommit"
+									],
+									"variable": [
+										{
+											"key": "urnCommit",
+											"value": "urn:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6cGVyaXNjb29wZV8yMDIxXzAxL1Rlc3Rpbmcubndk",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getCommitForCodeCommit",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getcommitforcode/:codeCommit",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getcommitforcode",
+										":codeCommit"
+									],
+									"variable": [
+										{
+											"key": "codeCommit",
+											"value": "Credentials"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getCommitForId",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getcommitforid/:idCommit",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getcommitforid",
+										":idCommit"
+									],
+									"variable": [
+										{
+											"key": "idCommit",
+											"value": "60085e282f1f3007cd9ebe65"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getProject",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getproject/:idProject",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getproject",
+										":idProject"
+									],
+									"variable": [
+										{
+											"key": "idProject",
+											"value": "6006a5e2ba291b0f672a1701"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "createProject",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n    \"CodigoProyecto\": \"ASDFDSAFASDF\",\n    \"Nombre\": \"ModuleProject\",\n    \"Descripcion\": \"ModuleProject\",\n    \"PathProjectServer\": \"V:\\\\007_PR_ibim.China\",\n    \"CodigoCliente\": \"ModuleProject\",\n    \"CodigoContratista\": \"ModuleProject\",\n    \"WebAppModulesNames\":[],\n    \"PathLogos\":[\n        \"./img/logo_cobra.png\"\n    ],\n    \"ConfigParameters\": [\n        {\n            \"Param\": \"dsfasdf\",\n            \"HtmlElement\": \"sadfdas\",\n            \"Visible\": true\n        },\n        {\n            \"Param\": \"dsddd\",\n            \"HtmlElement\": \"sadfdas\",\n            \"Visible\": true\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/createproject/:userId",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"createproject",
+										":userId"
+									],
+									"variable": [
+										{
+											"key": "userId",
+											"value": "607af6a8436ced78e4c0da63"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "addUserToProject",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n    \"CodigoProyecto\": \"NewProject\",\n    \"Id\":\"6006c0bf9d31de74aaf56f81\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/addusertoproject/:idUser",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"addusertoproject",
+										":idUser"
+									],
+									"variable": [
+										{
+											"key": "idUser",
+											"value": "6005b7c4ff66337f6dcf8019",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateCommit",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Id\":\"60097445716be9dc1442f0ec\",\n    \"IsTranslated\": true\n}\n\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/updatecommit",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"updatecommit"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "updateProject",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Id\":\"60097445716be9dc1442f0ec\",\n    \"PathLogos\":[\n        \"./img/logo_1.png\",\n        \"./img/logo_2.png\"\n    ]\n}\n\n\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/updateproject",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"updateproject"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "createCommit",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \n    \"Tag\": \"Construcción\",\n    \"Description\": \"FGV 19/106-ELECTRIFICACIÓN Cert.7\",\n    \"EmailForgeAccount\":\"aforge20+21_2@gmail.com\",\n    \"VisorTitle\":\"FGV 19/106 - ELECTRIFICACIÓN, SUBESTACIONES Y ACOMETIDAS. TRAMO ALICANTE - NAZARET - Cert. 7\",\n    \"CodeCommit\": \"19-106_COB_CO_MOV_MED_V07_01042021\",\n    \"PathCommitServer\":\"V:\\\\434_CL_CIS_TER_FGV-L10-ElectrificacionAlicanteNazaret\\\\3-Publicado\\\\Obra\\\\20210330_Cert7\",\n    \"UrnPeriscoopeWeb\":\"urn:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6cGVyaXNjb29wZTIwMjEwMy8xOS0xMDZfQ09CX0NPX01PVl9NRURfVjA3Lm53ZA==\",\n    \"IsTranslated\":true\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/createcommit/:idProject/:idUser",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"createcommit",
+										":idProject",
+										":idUser"
+									],
+									"variable": [
+										{
+											"key": "idProject",
+											"value": "605cc245f63e609c14d353a8",
+											"type": "string"
+										},
+										{
+											"key": "idUser",
+											"value": "605cc1a9f63e609c14d353a6",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getSpecificUser",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getspecificuser/:idUser",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getspecificuser",
+										":idUser"
+									],
+									"variable": [
+										{
+											"key": "idUser",
+											"value": "604622923932b7ac88662193"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getTablesIfcForUser",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/gettablesifcforuser/:idUser",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"gettablesifcforuser",
+										":idUser"
+									],
+									"variable": [
+										{
+											"key": "idUser",
+											"value": "6092afa8fd433f80d868fa02"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getTablesIfcForProject",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/gettablesifcforproject/:idproject",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"gettablesifcforproject",
+										":idproject"
+									],
+									"variable": [
+										{
+											"key": "idproject",
+											"value": "6092afa8fd433f80d868fa04"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "addTableIfcToUser",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/addtableifctouser/:idTable/:idUser",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"addtableifctouser",
+										":idTable",
+										":idUser"
+									],
+									"variable": [
+										{
+											"key": "idTable",
+											"value": "60990f11ab0244617f43dab7"
+										},
+										{
+											"key": "idUser",
+											"value": "60990f0eab0244617f43da8a"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "addTableIfcToProject",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/addtableifctoproject/:idTable/:idProject",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"addtableifctoproject",
+										":idTable",
+										":idProject"
+									],
+									"variable": [
+										{
+											"key": "idTable",
+											"value": "6094ef43ef6c9a595f47f3e5"
+										},
+										{
+											"key": "idProject",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteTableIfcToUser",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/tableifctouser/:idTable/:idUser",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"tableifctouser",
+										":idTable",
+										":idUser"
+									],
+									"variable": [
+										{
+											"key": "idTable",
+											"value": "6094ef43ef6c9a595f47f3e5"
+										},
+										{
+											"key": "idUser",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteTableIfcToProject",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/tableifctoproject/:idTable/:idProject",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"tableifctoproject",
+										":idTable",
+										":idProject"
+									],
+									"variable": [
+										{
+											"key": "idTable",
+											"value": "6094ef43ef6c9a595f47f3e5"
+										},
+										{
+											"key": "idProject",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "registerIfcCommit",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"commitKey\": \"Temporal 01\",\r\n    \"description\":\"Temporal\",\r\n    \"commitTag\": \"Certificación 05-P03\",\r\n    \"userId\":\"Certificación 05 del proyecto P03, Línea 10 Metro Valencia\",\r\n    \"projectId\":\"Obra\",\r\n    \"pathServer\": \"Certificación 05-P03\",\r\n    \"isCompressed\":\"Certificación 05 del proyecto P03, Línea 10 Metro Valencia\",\r\n    \"filesToRegister\":[\r\n        \"C:\\\\Users\\\\erl14\\\\source\\\\repos\\\\LinkMyIFC\\\\IFCServer\\\\Uploads\\\\Projects\\\\001_Demo01\\\\commitKeyPrueba\\\\Proyecto1.ifc\"\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/ifcframework/registerifccommit",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"ifcframework",
+										"registerifccommit"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "OpenCloseIFC",
+					"item": [
+						{
+							"name": "openIfcs",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pathOfFiles\":\"C:\\\\Users\\\\erl14\\\\Desktop\\\\PruebasIFC\\\\319\\\\GeometryCoords\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/openifcs",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"openifcs"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "closeIfcs",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/closeifcs/:guid",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"closeifcs",
+										":guid"
+									],
+									"variable": [
+										{
+											"key": "guid",
+											"value": "91c9e603-efef-4d6d-89b1-a2255aaa5dfb",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "refreshIfcs",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/refreshifcs/:guid",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"refreshifcs",
+										":guid"
+									],
+									"variable": [
+										{
+											"key": "guid",
+											"value": "6184a866-192d-4c05-81c2-684741727303",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DatosGenerales",
+					"item": [
+						{
+							"name": "allpsetpropvalues",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/allpsetpropvalues/:guidModels",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"allpsetpropvalues",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "5285f32d-f475-448f-9254-04eac549c6d2",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "mergeIfcModels",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\"PruebasNewMerge_V02_01.ifc\",\"PruebasNewMerge_V02_02.ifc\",\"PruebasNewMerge_V02_03.ifc\",\"PruebasNewMerge_V02_04.ifc\",\"PruebasNewMerge_V02_05.ifc\"]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/mergeifcmodels/:guidModels",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"mergeifcmodels",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "72c63ff1-3ef9-4314-a78c-0a9df0ff3310",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "allIfcClasses",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/allifcclasses/:guidModels",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"allifcclasses",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "0194e029-b5e5-4711-ab36-1ba1a868ce4a",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getElementsFromPsetParam",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"pset\":\"FGV_RAMS\",\r\n    \"parameter\":\"RAMS_Responsable\",\r\n    \"values\":[\"PE01\"],\r\n    \"filterCodes\":\"none\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getelementsfrompsetparam/:guidModels",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getelementsfrompsetparam",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "e12623ca-5b51-48d8-8dab-4bd3c9402673",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getValuesOfPropsOfElems",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"model\":\"FGV18_131-FCC-PE01-08PLRA-M3-BE.ifc\",\r\n        \"guids\":[\r\n            \"3BdqO6QFL2D9KarIfQY7D_\"\r\n            ],\r\n        \"includeType\": true\r\n    },\r\n    {\r\n        \"model\":\"FGV18_131-FCC-PE01-08PLRA-M3-SE.ifc\",\r\n        \"guids\":[\r\n            \"0EoRpu7812cfTGgcCx1cQT\",\r\n            \"0EoRpu7812cfTGgcCx1cQS\"\r\n        ]\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getvaluesofpropsofelems/:guidModels",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getvaluesofpropsofelems",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "5ff666da-ddb4-4e0a-88d0-ed837a1a95cd",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "segregateIfcInstances",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"model\":\"UNO.ifc\",\r\n        \"guids\":[\r\n            \"0hIwsK4mb1reBp96Bx5PYw\",\r\n            \"3oZZpaaBP13uzMcm0f5TxY\",\r\n            \"2wzbxH6G99bf2PbN6zioX9\",\r\n            \"2wzbxH6G99bf2PbN6zioQr\",\r\n            \"0eQfd31CzE7BPqWaccQj8l\"\r\n        ]\r\n    },\r\n    {\r\n        \"model\":\"DOS.ifc\",\r\n        \"guids\":[\r\n            \"0hIwsK4mb1reBp96Bx5PYw\",\r\n            \"3oZZpaaBP13uzMcm0f5TxY\",\r\n            \"2wzbxH6G99bf2PbN6zioX9\",\r\n            \"2wzbxH6G99bf2PbN6zioQr\",\r\n            \"0eQfd31CzE7BPqWaccQj8l\"\r\n        ]\r\n    },\r\n        {\r\n        \"model\":\"TRES.ifc\",\r\n        \"guids\":[\r\n            \"0hIwsK4mb1reBp96Bx5PYw\",\r\n            \"3oZZpaaBP13uzMcm0f5TxY\",\r\n            \"2wzbxH6G99bf2PbN6zioX9\",\r\n            \"2wzbxH6G99bf2PbN6zioQr\",\r\n            \"0eQfd31CzE7BPqWaccQj8l\"\r\n        ]\r\n    },\r\n        {\r\n        \"model\":\"CUATRO.ifc\",\r\n        \"guids\":[\r\n            \"0hIwsK4mb1reBp96Bx5PYw\",\r\n            \"3oZZpaaBP13uzMcm0f5TxY\",\r\n            \"2wzbxH6G99bf2PbN6zioX9\",\r\n            \"2wzbxH6G99bf2PbN6zioQr\",\r\n            \"0eQfd31CzE7BPqWaccQj8l\"\r\n        ]\r\n    },\r\n    {\r\n        \"model\":\"CINCO.ifc\",\r\n        \"guids\":[\r\n            \"0hIwsK4mb1reBp96Bx5PYw\",\r\n            \"3oZZpaaBP13uzMcm0f5TxY\",\r\n            \"2wzbxH6G99bf2PbN6zioX9\",\r\n            \"2wzbxH6G99bf2PbN6zioQr\",\r\n            \"0eQfd31CzE7BPqWaccQj8l\"\r\n        ]\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/segregateifcinstances/:guidModels/:segregateModelName",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"segregateifcinstances",
+										":guidModels",
+										":segregateModelName"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "91312ae7-8ca1-468f-8396-b4673e106f9f",
+											"type": "string"
+										},
+										{
+											"key": "segregateModelName",
+											"value": "Segregado_MEP"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "specificPsetPropValues",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"NamePset\":\"Pset_IfcElementSpecific\",\r\n        \"NameProp\":\"IsIfc2x3\",\r\n        \"ClassProp\":\"IfcSIUnit\"\r\n    },\r\n    {\r\n        \"NamePset\":\"Pset_IfcElementSpecific\",\r\n        \"NameProp\":\"GlobalId\",\r\n        \"ClassProp\":\"IfcSIUnit\"\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/specificpsetpropvalues/:guidModels",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"specificpsetpropvalues",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "2e53fa98-5bb0-4b4d-bdf0-406e9cab4d91",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "generateGeoJsonSpecific",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"model\":\"FGV18_131-FCC-PE01-08PLRA-M3-SE.ifc\",\r\n        \"guids\":[\"2q$ZX4HU1Ayvm4QnFVjLXH\"],\r\n        \"properties\": [\r\n            {\r\n                \"NamePset\":\"Pset_IfcElementSpecific\",\r\n                \"NameProp\":\"GlobalId\"\r\n            },\r\n            {\r\n                \"NamePset\":\"Pset_IfcElementSpecific\",\r\n                \"NameProp\":\"ModelFileName\"\r\n            }\r\n        ],\r\n        \"bbox\": true\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/generategeojsonspecific/:nameOfCollection/:guidModels",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"generategeojsonspecific",
+										":nameOfCollection",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "nameOfCollection",
+											"value": "HoySi"
+										},
+										{
+											"key": "guidModels",
+											"value": "55e5922c-427b-4432-afb8-056c48604cbd"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "systems",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/systems/:guidModels",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"systems",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "acc72a91-8021-485a-8b48-c43711c5b1a8",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "avarageCoordinateOfModels",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/avaragecoordinateofmodels/:guidModels",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"avaragecoordinateofmodels",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "ecf67205-421d-4650-b24b-7ee8fb58458c",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "coordinationMatrixOfModels",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/coordinationmatrixofmodels/:guidModels",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"coordinationmatrixofmodels",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "543abebd-6608-41c2-be52-1a47bfd9c352",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Forge",
+					"item": [
+						{
+							"name": "createForgeAccount",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Description\": \"25/03/2021\",\n    \"EmailAccount\": \"aforge20+21_2@gmail.com\",\n    \"EmailPassword\": \"9,QtXQSRL8j;t?i\",\n    \"ConsumerKey\": \"q5cw7WGUE18nU3irA837EBTIioXbsCHL\",\n    \"ConsumerSecret\": \"HdXXhKtelW2taHNh\",\n    \"IsCurrentAccount\": false,\n    \"Bucket\":{}\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/createforgeaccount",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"createforgeaccount"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAccount",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"EmailAccount\": \"aforge20+21_1@gmail.com\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getaccount",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getaccount"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllForgeAccounts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getallforgeaccounts",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getallforgeaccounts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "createBucket",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"EmailAccount\": \"aforge20+21_1@gmail.com\",\r\n    \"Bucket\":{\r\n        \"BucketKey\":\"erl_pruebas_ibim_v02\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/createbucket",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"createbucket"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "GeneralManagement",
+					"item": [
+						{
+							"name": "getModulesForUserProject",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getmodules/:idProject/:idUser",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getmodules",
+										":idProject",
+										":idUser"
+									],
+									"variable": [
+										{
+											"key": "idProject",
+											"value": "607ae2d3296f1fd8372e7e25"
+										},
+										{
+											"key": "idUser",
+											"value": "607ae2d3296f1fd8372e7e20"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "createWebAppModule",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"Description\": \"Sistemas MEP \",\n    \"Name\": \"PEPE\",\n    \"Html\": \"<ibim-module-externalconnection class='module-externalconnection'></ibim-module-externalconnection>\"\n}\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/createwebappmodule",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"createwebappmodule"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getAllWebAppModules",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getwebappmodules",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getwebappmodules"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"item": [
+						{
+							"name": "userIsRegistered",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Name\": \"David\",\r\n    \"Password\":\"IbimPlatform\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/userisregistered",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"userisregistered"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ExternalProperties",
+					"item": [
+						{
+							"name": "getOrCreateIfcExtPset",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Name\": \"Ibim\",\r\n    \"Description\":\"Specific pset for Ibim\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getorcreateifcextpset",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getorcreateifcextpset"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getOrCreateIfcExtPropDef",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Name\": \"Ibim-PropDefinition\",\r\n    \"Description\":\"Specific prop definition for Ibim\",\r\n    \"PsetId\":\"609bbb556b595ebdf6fed21c\",\r\n    \"StorageType\":\"String\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getorcreateifcextpropdef",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getorcreateifcextpropdef"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getOrCreateIfcExtProperty",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"PropExtDefId\": \"609be601506d504dcc81ffbd\",\r\n    \"IfcValueStr\": \"35.986\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getorcreateifcextproperty",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getorcreateifcextproperty"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getOrCreateIfcExtRelationProp",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"IfcModelName\": \"FGV18_131-FCC-EA-08PLRA-M3-IE\",\r\n    \"IfcElemId\": \"asdfasdfasdfds\",\r\n    \"ExternalPropertiesIds\":[\"609bfe0fb84f1d0d90023780\",\"609bfd07521dfa8c16177790\"]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getorcreateifcextrelationprop",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getorcreateifcextrelationprop"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "saveExtPropGeneral",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n        \"ValueStr\": \"55\",\r\n        \"NamePset\": \"Ibim-Pset\",\r\n        \"NameProp\": \"Ibim-Prop\",\r\n        \"StorageType\":\"Double\"\r\n    }\r\n]\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/saveextpropgeneral/:ifcModelName/:ifcGuidElem",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"saveextpropgeneral",
+										":ifcModelName",
+										":ifcGuidElem"
+									],
+									"variable": [
+										{
+											"key": "ifcModelName",
+											"value": "nombreIFC"
+										},
+										{
+											"key": "ifcGuidElem",
+											"value": "guidIFC"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "savePropToMultipleIfcElems",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"ValueStr\": \"55\",\r\n    \"NamePset\": \"Ibim-Pset\",\r\n    \"NameProp\": \"Ibim-Prop\",\r\n    \"StorageType\":\"Double\",\r\n    \"GlobalIds\":[\"13vTl$MLr5tQzK6ZPUWe$K\",\"13vTl$MLr5tQzK6ZPUXHx_\",\"0Sw7Or0JzAZA0Ffcokosaf\",\"0Sw7Or0JzAZA0FfcokosHA\"]\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/saveproptomultipleifcelems/:ifcModelName",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"saveproptomultipleifcelems",
+										":ifcModelName"
+									],
+									"variable": [
+										{
+											"key": "ifcModelName",
+											"value": "19-132-L1_UEE_PC01_F-10-E305_MOD_ISF_VRR.ifc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getListExternalPropForSpecificElement",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getlistexternalpropforspecificelement/:ifcModelName/:ifcGuidElem",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getlistexternalpropforspecificelement",
+										":ifcModelName",
+										":ifcGuidElem"
+									],
+									"variable": [
+										{
+											"key": "ifcModelName",
+											"value": ""
+										},
+										{
+											"key": "ifcGuidElem",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "getListIfcElementsWithExternalProps",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/getlistifcelementswithexternalprops/:ifcModelName",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"getlistifcelementswithexternalprops",
+										":ifcModelName"
+									],
+									"variable": [
+										{
+											"key": "ifcModelName",
+											"value": "19-132-L1_UEE_PC01_F-10-E305_MOD_ISF_VRR.ifc"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "extendIfcFilesWithExternalProps",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{HostASPNET}}/api/ifc/extendifcfileswithexternalprops/:guidModels",
+									"protocol": "http",
+									"host": [
+										"{{HostASPNET}}"
+									],
+									"path": [
+										"api",
+										"ifc",
+										"extendifcfileswithexternalprops",
+										":guidModels"
+									],
+									"variable": [
+										{
+											"key": "guidModels",
+											"value": "369a5e70-848d-4f1a-bb0c-47f9a44c0455"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Convert",
+					"item": [
+						{
+							"name": "convertToObj",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"absoluteFilePath\": \"C:\\\\Users\\\\erl14\\\\source\\\\repos\\\\LinkMyIFC\\\\IFCServer\\\\Uploads\\\\Projects\\\\Demo02\\\\SimpleNormal\\\\Proyecto1_Normal.ifc\",\r\n    \"coordinationMatrix\":[1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0,-1000000.5861,-5000000.58936,-50000000.5893,1]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/api/ifc/converttoobj",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"ifc",
+										"converttoobj"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "IfcOpenShell_Framework",
+			"item": [
+				{
+					"name": "openIfcs",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pathOfFiles\":\"C:\\\\Users\\\\erl14\\\\Desktop\\\\PruebasIFC\\\\319\\\\HoySi\\\\transformated\",\n    \"guidModels\":\"asdfasdfasdf\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6969/ifcopenshell/openifcs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6969",
+							"path": [
+								"ifcopenshell",
+								"openifcs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "boundaryGeomInstance",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"ifc\": \"sanitary.ifc\",\n        \"guids\":\n        [\n        \"2HERh4lpn6SA1IRVBuYa5R\"\n        ]\n    }\n] \n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6969/ifcopenshell/boundarygeominstance/:guidModels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6969",
+							"path": [
+								"ifcopenshell",
+								"boundarygeominstance",
+								":guidModels"
+							],
+							"variable": [
+								{
+									"key": "guidModels",
+									"value": "b18c90b6-7539-489f-aceb-da858706f731"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "basicGeomInstance",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"model\": \"sanitary.ifc\",\n    \"guid\": \"2HERh4lpn6SA1IRVBuYa5R\"\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6969/ifcopenshell/basicgeominstance/:guidModels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6969",
+							"path": [
+								"ifcopenshell",
+								"basicgeominstance",
+								":guidModels"
+							],
+							"variable": [
+								{
+									"key": "guidModels",
+									"value": "e355d47f-2b33-4fc9-ba85-e0731264034f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "allFaces",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n        \"ifc\": \"sanitary.ifc\",\n        \"guids\":\n        [\n        \"38WMv13UX768nr$HRnj0TE\"\n        ]\n    }\n] \n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6969/ifcopenshell/allfaces/:guidModels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6969",
+							"path": [
+								"ifcopenshell",
+								"allfaces",
+								":guidModels"
+							],
+							"variable": [
+								{
+									"key": "guidModels",
+									"value": "2d8ec62b-a1a4-480f-b237-51c0696ce5e0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "transformCivilIfc",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"models\": [\"CivilSite.ifc\",\"CivilSiteDos.ifc\"]\n}\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:6969/ifcopenshell/transformcivilifc/:guidModels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6969",
+							"path": [
+								"ifcopenshell",
+								"transformcivilifc",
+								":guidModels"
+							],
+							"variable": [
+								{
+									"key": "guidModels",
+									"value": "46ee5b3f-96d7-4012-a31e-a482451b8268"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "helloWorld",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6969/ifcopenshell/helloworld",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6969",
+							"path": [
+								"ifcopenshell",
+								"helloworld"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "closeIfcs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:6969/ifcopenshell/closeifcs/:guidModels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "6969",
+							"path": [
+								"ifcopenshell",
+								"closeifcs",
+								":guidModels"
+							],
+							"variable": [
+								{
+									"key": "guidModels",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Host",
+			"value": "localhost:443"
+		},
+		{
+			"key": "Host",
+			"value": "ibimserver.ddns.net:3589"
+		},
+		{
+			"key": "HostASPNET",
+			"value": "localhost:5000"
+		}
+	]
+}
